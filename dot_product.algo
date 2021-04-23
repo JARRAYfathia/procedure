@@ -1,0 +1,64 @@
+PROCEDURE dot_product(V,U : ARRAY_OF INTEGER[20], VAR ps:FLOAT )
+VAR
+   i:INTEGER;
+   ps:INTEGER;
+   
+BEGIN
+   ps:=0;
+   FOR i FROM 0 TO V.length -1 STEP 1 DO
+       ps :=ps+ V[i]*U[i];
+   END_FOR
+END
+/************************************/
+ALGORITHM Orthogonal proc
+VAR
+    V : ARRAY_OF INTEGER[20];
+    U : ARRAY_OF INTEGER[20];
+    ps :FLOAT;
+BEGIN
+    write("give first vector");
+    read(V);
+    write("give second vector");
+    read(U);
+
+    dot_product(V,U,ps);
+
+    IF (ps=0) THEN
+        write("V and U are orthogonal");
+    ELSE
+        write("V and U are not orthogonal");
+    END_IF     
+    END_IF
+END
+/***************************************/
+FUNCTION dot_product(V, U:ARRAY_OF_INTEGER[20]) : FLOAT
+VAR
+    i,j:INTEGER;
+    ps:FLOAT;
+BEGIN
+    FOR i FROM 0 TO V.length-1 STEP step  DO
+        ps :=ps + V[i]*U[i];
+    END_FOR
+    RETURN ps ;
+END
+/*******************************************/
+ALGORITHM Orthogonal FUN
+VAR
+    V : ARRAY_OF INTEGER[20];
+    U : ARRAY_OF INTEGER[20];
+    ps :FLOAT;
+BEGIN
+    write("give first vector");
+    read(V);
+    write("give second vector");
+    read(U);
+
+    ps:=dot_product(V,U);
+
+    IF (ps=0) THEN
+        write("V and U are orthogonal");
+    ELSE
+        write("V and U are not orthogonal");
+    END_IF     
+    END_IF
+END
